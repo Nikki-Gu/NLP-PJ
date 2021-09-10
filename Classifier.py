@@ -2,13 +2,13 @@
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.feature_extraction.text import TfidfVectorizer
 import jieba
-from questions import *
+from trainData import *
 
 
-class Question_classify():
+class Classifier:
     def __init__(self):
         self.train_x, self.train_y = self.load_data
-        self.model = self.train_NB()
+        self.model = self.trainNb()
 
     @property
     def load_data(self):
@@ -23,7 +23,7 @@ class Question_classify():
                 train_y.append(label)
         return train_x, train_y
 
-    def train_NB(self):
+    def trainNb(self):
         x_train, y_train = self.train_x, self.train_y
         self.tv = TfidfVectorizer()
         train_data = self.tv.fit_transform(x_train).toarray()

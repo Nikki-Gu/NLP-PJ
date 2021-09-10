@@ -1,8 +1,9 @@
 # 根据问题分类器的结果对不同的问题进行答案检索
+# TODO 查询neo4j数据库来获取结果
 from getdata import *
 
 
-class distribute:
+class Answer:
     def __init__(self):
         self.dict = {
             0: self.get_location_condition,
